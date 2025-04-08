@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: python
+    command        : streamlit run /tmp/app.py
+    ports:
+      - "8080:8501" 
+    volumes:
+      - ./app:/tmp
+          
+#docker compose run --rm -it app sh
