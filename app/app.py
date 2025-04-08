@@ -56,7 +56,7 @@ disable_button = not api_key.strip() or not prompt.strip()
 
 if st.button('送信', disabled=disable_button):
     processed_text = generate_summary(option, api_key, prompt)
-    text_area = st.text_area('出力結果',label_visibility="hidden", processed_text, height=1400)
+    text_area = st.text_area('出力結果',label_visibility="hidden", value=processed_text, height=1400)
 else:
     # 初期状態または送信前
     text_area = st.text_area('出力結果',label_visibility="hidden", placeholder='ここに結果が表示されます。')
