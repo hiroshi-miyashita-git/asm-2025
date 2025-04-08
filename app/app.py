@@ -47,7 +47,7 @@ def generate_summary(option: str, api_key: str, prompt: str) -> str:
 
 
 st.subheader("事前課題②「生成AIによって教育や業務がどう変わるのか」", divider="gray")
-option = st.selectbox("",["gemini-2.0-flash", "gemini-2.5-pro-exp-03-25"])
+option = st.selectbox("モデル",["gemini-2.0-flash", "gemini-2.5-pro-exp-03-25"],label_visibility="hidden")
 
 # テキストインプット
 api_key = st.text_input('APIキー', label_visibility="hidden", placeholder='APIキーを入力')
