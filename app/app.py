@@ -50,13 +50,13 @@ st.subheader("事前課題②「生成AIによって教育や業務がどう変�
 option = st.selectbox("",["gemini-2.0-flash", "gemini-2.5-pro-exp-03-25"])
 
 # テキストインプット
-api_key = st.text_input('', placeholder='APIキーを入力')
-prompt = st.text_input('', placeholder='プロンプトを入力')
+api_key = st.text_input('APIキー', label_visibility="hidden", placeholder='APIキーを入力')
+prompt = st.text_input('プロンプト', label_visibility="hidden", placeholder='プロンプトを入力')
 disable_button = not api_key.strip() or not prompt.strip()
 
 if st.button('送信', disabled=disable_button):
     processed_text = generate_summary(option, api_key, prompt)
-    text_area = st.text_area('', processed_text, height=1400)
+    text_area = st.text_area('出力結果',label_visibility="hidden", processed_text, height=1400)
 else:
     # 初期状態または送信前
-    text_area = st.text_area('', placeholder='ここに結果が表示されます。')
+    text_area = st.text_area('出力結果',label_visibility="hidden", placeholder='ここに結果が表示されます。')
