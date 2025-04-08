@@ -10,8 +10,11 @@ st.markdown("""
       font-weight: 400;
       font-style: normal;
     }
-    div.stTextArea, div.stTextInput, div.stSelectbox, div.stHeading {
+    div.stTextArea, div.stTextInput, div.stSelectbox, div.stHeading, div.stButton {
       width: 800px;
+    }
+    div.stButton {
+        text-align: right;
     }
     </style>""",
     unsafe_allow_html=True,
@@ -36,7 +39,7 @@ def generate_summary(option: str, api_key: str, prompt: str) -> str:
                 "最初に「はい、承知いたしました。」のような文は不要で、シンプルに【議題】と議題の内容を表示して下さい。"
                 "会話はBさんから始めて下さい。Aさんは「A」、Bさんは「B」と表示して下さい。"
                 "口調は命令口調ではなく、やさしい口調で。"
-                "要約の後に、「着目したポイント」「議題の背景」を、"
+                "要約の後に、「議論のポイント」「議題の背景」を、"
                 "「【要約】」、「【背景】」という形式で、それぞれ100トークン程度で分かりやすく教えて下さい。"
                 f"{prompt}")]
         )
