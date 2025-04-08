@@ -35,12 +35,12 @@ def generate_summary(option: str, api_key: str, prompt: str) -> str:
                 "BさんはMBAを保有しているのでMBA的な観点を持っています。IQは140程度です。"
                 "AさんはMBAを保有していないけど、浅い質問だけでなく本質的な質問もできるタイプです。"
                 "以下の議題を、AさんとBさんの漫才形式で、"
-                "重要なポイントが分かるように1000トークン程度で要約して下さい。"
+                "重要なポイントが分かるように1000トークン程度で議論して下さい。"
                 "最初に「はい、承知いたしました。」のような文は不要で、シンプルに【議題】と議題の内容を表示して下さい。"
                 "会話はAさんから始めて下さい。Aさんは「A」、Bさんは「B」と表示して下さい。"
                 "口調は命令口調ではなく、やさしい口調で。"
-                "要約の後に、議論の背景、議論のポイント、今後期待されること、今後の課題をストーリーのように整理して、"
-                "「【要約】」という形式で、200トークン程度で箇条書き（タイトルは付けない）で分かりやすく教えて下さい。"
+                "議論の内容の後に、【要約】と議論の内容を200トークン程度に整理して、箇条書きで表示して下さい。箇条書き用のタイトルは不要です。"
+                "議論の内容を整理する際は、議論の背景、今回の議論のポイント、今後期待できること、今後の課題という過去から未来に向けたストーリーを意識して。"
                 f"{prompt}")]
         )
         st.session_state.processing = False
@@ -50,10 +50,10 @@ def generate_summary(option: str, api_key: str, prompt: str) -> str:
 
 
 st.subheader("事前課題②「生成AIによって教育や業務がどう変わるのか」", divider="gray")
-option = st.selectbox("モデル",["gemini-2.0-flash", "gemini-2.5-pro-exp-03-25"],label_visibility="hidden")
+option = st.selectbox("モデル",["gemini-2.0-flash-001", "gemini-2.0-flash-thinking-exp-01-21", "gemini-2.5-pro-exp-03-25"],label_visibility="hidden")
 
 # テキストインプット
-api_key = st.text_input('APIキー', label_visibility="hidden", placeholder='APIキーを入力')
+api_key = st.text_input('APIキー', label_visibility="hidden", placeholder='APIキーを入力', type="password")
 prompt = st.text_input('プロンプト', label_visibility="hidden", placeholder='プロンプトを入力')
 disable_button = not api_key.strip() or not prompt.strip()
 
